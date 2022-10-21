@@ -1,0 +1,39 @@
+version: "3.7"
+services:
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+      args:
+        XDEBUG_REMOTE_HOST: ${DOCKER_HOST_IP}
+    container_name: ${DOCKER_PREFIX}php
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+    networks:
+      - net
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:15
+    container_name: ${DOCKER_PREFIX}postgres
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - "${DOCKER_POSTGRES_PORT}:5432"
+    networks:
+      - net
+
+networks:
+  net:
+    name: ${DOCKER_NETWORK_NAME}
+    ipam:
+      driver: default
+      config:
+        - subnet: "${DOCKER_SUBNET}"
+
+volumes:
+  data: {}

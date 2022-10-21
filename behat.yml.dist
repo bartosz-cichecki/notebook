@@ -1,0 +1,15 @@
+default:
+    suites:
+        default:
+            paths:
+                - src/Note/Infrastructure/Resources/features
+            contexts:
+                - Notebook\Note\Infrastructure\BehatContext\NoteContext
+
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                environment: test
+                class: Notebook\Kernel
+            bootstrap:
+                tests/bootstrap.php

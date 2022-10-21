@@ -1,0 +1,10 @@
+<doctrine-mapping>
+    <entity name="Notebook\Note\Domain\Note\Note" table="note">
+        <id name="id" type="id">
+            <generator strategy="NONE"/>
+        </id>
+        <field name="name" />
+        <field name="content" type="text" />
+        <field name="updateCounter" type="integer" />
+    </entity>
+</doctrine-mapping>

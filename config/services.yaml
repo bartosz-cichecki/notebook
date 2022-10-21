@@ -1,0 +1,50 @@
+imports:
+  - { resource: '../src/Common/Infrastructure/Resources/config/services.yaml' }
+  - { resource: '../src/Note/Infrastructure/Resources/config/services.yaml' }
+
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  services:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*Service.php'
+
+  service_interfaces:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*ServiceInterface.php'
+
+  factories:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*Factory.php'
+
+  factory_interfaces:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*FactoryInterface.php'
+
+  outsides:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*Outside.php'
+
+  outside_interfaces:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*OutsideInterface.php'
+
+  repositories:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*Repository.php'
+
+  repository_interfaces:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*RepositoryInterface.php'
+
+  projections:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*Projection.php'
+
+  projection_interfaces:
+    namespace: Notebook\
+    resource: '%kernel.project_dir%/src/**/*ProjectionInterface.php'

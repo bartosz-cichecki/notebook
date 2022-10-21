@@ -1,0 +1,9 @@
+/var/
+/vendor/
+
+/.php-cs-fixer.cache
+/phpunit.xml
+.phpunit.result.cache
+
+/bin/*
+!bin/console

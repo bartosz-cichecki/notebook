@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Notebook\Note\Domain\Note\Outside\NoteOutsideInterface:
+    class: Notebook\Note\Infrastructure\Note\NoteOutside
+    public: true

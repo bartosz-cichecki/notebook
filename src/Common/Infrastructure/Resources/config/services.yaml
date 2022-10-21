@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Notebook\Common\Infrastructure\Doctrine\EventListener\DependencyLoader:
+    arguments:
+      $container: '@service_container'
+    tags:
+      - name: 'doctrine.event_listener'
+        event: 'postLoad'
+        priority: 500
